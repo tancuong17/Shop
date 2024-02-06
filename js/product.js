@@ -27,16 +27,12 @@ $('.mySwiper2 .swiper-slide').each(function (i, e) {
 })
 
 $('#color_container img').on('click', function () {
-    const type = $(this).attr("data-id");
-    $('.mySwiper2 .swiper-wrapper').empty();
+    let index = 0;
+    let id_color_choose = $(this).attr("data-id");
     $(arraySlide).each(function (i, e) {
-        const exist = $(e).attr('data-id').indexOf(type);
-        if (exist >= 0) {
-            $('.mySwiper2 .swiper-wrapper').prepend(e);
-        }
-        else{
-            $('.mySwiper2 .swiper-wrapper').append(e);
+        if($(e).attr('data-id') == id_color_choose){
+            index = i;
         }
     });
-    swiper2.slideTo(0);
+    swiper2.slideTo(index);
 });
